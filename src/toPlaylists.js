@@ -28,6 +28,16 @@ export const generateSegments = ({ attributes, segmentInfo }) => {
 
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
 
+  // add aes128key to segments, this will be as same as m3u8-parser
+  if (attributes.key) {
+    segments.map((segment)=>{
+      segment.key = attributes.key;
+      if (segment.map) {
+        segment.map.key = attributes.key;
+      }
+      return segment;
+    });
+  }
   // The @duration attribute will be used to determin the playlist's targetDuration which
   // must be in seconds. Since we've generated the segment list, we no longer need
   // @duration to be in @timescale units, so we can convert it here.

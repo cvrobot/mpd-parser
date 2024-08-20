@@ -218,6 +218,61 @@ const generateKeySystemInformation = (contentProtectionNodes) => {
   }, {});
 };
 
+/**
+ * Tranforms a series of content protection nodes to
+ * an object containing aes info
+ *
+ * @param {Node[]} contentProtectionNodes
+ *        Content protection nodes
+ * @return {Object}
+ *        Object containing aes info
+ */
+const generateAesKeyInformation = (contentProtectionNodes) => {
+  return contentProtectionNodes.reduce((acc, node) => {
+    const attributes = parseAttributes(node);
+
+    if (attributes.schemeIdUri) {
+      attributes.schemeIdUri = attributes.schemeIdUri.toLowerCase();
+    }
+
+    if (attributes.schemeIdUri === 'urn:mpeg:dash:sea:2012') {
+
+      // aes128 protection
+      const segEncryptNode = findChildren(node, 'sea:SegmentEncryption')[0];
+
+      if (segEncryptNode) {
+        const segEncryptAttrs = parseAttributes(segEncryptNode);
+        // segEncryptAttrs.schemeIdUri should equal to 'urn:mpeg:dash:sea:aes128-cbc:2013'
+
+        if (segEncryptAttrs.schemeIdUri !== 'urn:mpeg:dash:sea:aes128-cbc:2013') {
+          return acc;
+        }
+      }
+
+      const cryptoPeriodNode = findChildren(node, 'sea:CryptoPeriod')[0];
+
+      if (cryptoPeriodNode) {
+        const cryptoPeriodAttr = parseAttributes(cryptoPeriodNode);
+
+        if (cryptoPeriodAttr.IV && cryptoPeriodAttr.keyUriTemplate) {
+          if (cryptoPeriodAttr.IV.substring(0, 2).toLowerCase() === '0x') {
+            cryptoPeriodAttr.IV = cryptoPeriodAttr.IV.substring(2);
+          }
+          cryptoPeriodAttr.IV = cryptoPeriodAttr.IV.match(/.{8}/g);
+          cryptoPeriodAttr.IV[0] = parseInt(cryptoPeriodAttr.IV[0], 16);
+          cryptoPeriodAttr.IV[1] = parseInt(cryptoPeriodAttr.IV[1], 16);
+          cryptoPeriodAttr.IV[2] = parseInt(cryptoPeriodAttr.IV[2], 16);
+          cryptoPeriodAttr.IV[3] = parseInt(cryptoPeriodAttr.IV[3], 16);
+          cryptoPeriodAttr.IV = new Uint32Array(cryptoPeriodAttr.IV);
+          acc = {method: 'AES-128', iv: cryptoPeriodAttr.IV, uri: cryptoPeriodAttr.keyUriTemplate};
+        }
+      }
+    }
+
+    return acc;
+  }, {});
+};
+
 // defined in ANSI_SCTE 214-1 2016
 export const parseCaptionServiceMetadata = (service) => {
   // 608 captions
@@ -401,7 +456,11 @@ export const toRepresentations =
   if (Object.keys(contentProtection).length) {
     attrs = merge(attrs, { contentProtection });
   }
+  const aes128Protection = generateAesKeyInformation(findChildren(adaptationSet, 'ContentProtection'));
 
+  if (Object.keys(aes128Protection).length) {
+    attrs = merge(attrs, { key: aes128Protection });
+  }
   const segmentInfo = getSegmentInformation(adaptationSet);
   const representations = findChildren(adaptationSet, 'Representation');
   const adaptationSetSegmentInfo = merge(periodSegmentInfo, segmentInfo);
