@@ -343,10 +343,16 @@ export const formatVideoPlaylist = ({
   return playlist;
 };
 
+const isAudioCodec = (codec) => {
+  const audioCodecs = ['mp4a', 'ac-3', 'ec-3', 'opus', 'vorbis'];
+
+  return audioCodecs.some(audioCodec => codec.startsWith(audioCodec));
+};
+
 const videoOnly = ({ attributes }) =>
-  attributes.mimeType === 'video/mp4' || attributes.mimeType === 'video/webm' || attributes.contentType === 'video';
+  attributes.mimeType === 'video/mp4' || attributes.mimeType === 'video/webm' || (attributes.mimeType === 'video/mp2t' && (attributes.codecs && !isAudioCodec(attributes.codecs))) || attributes.contentType === 'video';
 const audioOnly = ({ attributes }) =>
-  attributes.mimeType === 'audio/mp4' || attributes.mimeType === 'audio/webm' || attributes.contentType === 'audio';
+  attributes.mimeType === 'audio/mp4' || attributes.mimeType === 'audio/webm' || (attributes.mimeType === 'video/mp2t' && (attributes.codecs && isAudioCodec(attributes.codecs))) || attributes.contentType === 'audio';
 const vttOnly = ({ attributes }) =>
   attributes.mimeType === 'text/vtt' || attributes.contentType === 'text';
 

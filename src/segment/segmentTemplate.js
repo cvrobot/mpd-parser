@@ -144,7 +144,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
 
   const { initialization = { sourceURL: '', range: '' } } = attributes;
 
-  const mapSegment = urlTypeToSegment({
+  const mapSegment = attributes.mimeType === 'video/mp2t' && initialization.sourceURL.length === 0 ? null : urlTypeToSegment({
     baseUrl: attributes.baseUrl,
     source: constructTemplateUrl(initialization.sourceURL, templateValues),
     range: initialization.range
@@ -167,15 +167,14 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
       // calculated in mpd-parser prior to this, so it's assumed to be available.
       attributes.periodStart + ((segment.time - presentationTimeOffset) / timescale);
 
-    const map = {
+    const map = Object.assign({
       uri,
       timeline: segment.timeline,
       duration: segment.duration,
       resolvedUri: resolveUrl(attributes.baseUrl || '', uri),
-      map: mapSegment,
       number: segment.number,
       presentationTime
-    };
+    }, mapSegment ? { map: mapSegment } : {});
 
     return map;
   });
