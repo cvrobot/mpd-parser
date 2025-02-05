@@ -1,6 +1,28 @@
 import { range } from '../utils/list';
 
 /**
+ * parse the start number attribute that can be a string
+ * number, or undefined.
+ *
+ * @param {string|number|undefined} startNumber
+ *        The start number attribute.
+ *
+ * @return {number}
+ *          The result of parsing the start number, defaults to 1.
+ */
+const parseStartNumber = (startNumber) => {
+  if (startNumber && typeof startNumber !== 'number') {
+    startNumber = parseInt(startNumber, 10);
+  }
+
+  if (isNaN(startNumber)) {
+    return 1;
+  }
+
+  return startNumber;
+};
+
+/**
  * parse the end number attribue that can be a string
  * number, or undefined.
  *
@@ -42,18 +64,19 @@ export const segmentRange = {
       sourceDuration,
       periodDuration
     } = attributes;
+    const start = parseStartNumber(attributes.startNumber) - 1;
     const endNumber = parseEndNumber(attributes.endNumber);
     const segmentDuration = duration / timescale;
 
     if (typeof endNumber === 'number') {
-      return { start: 0, end: endNumber };
+      return { start, end: endNumber };
     }
 
     if (typeof periodDuration === 'number') {
-      return { start: 0, end: periodDuration / segmentDuration };
+      return { start, end: start + Math.ceil(periodDuration / segmentDuration) };
     }
 
-    return { start: 0, end: sourceDuration / segmentDuration };
+    return { start, end: start + Math.ceil(sourceDuration / segmentDuration) };
   },
 
   /**
@@ -75,6 +98,7 @@ export const segmentRange = {
       minimumUpdatePeriod = 0,
       timeShiftBufferDepth = Infinity
     } = attributes;
+    const start = parseStartNumber(attributes.startNumber) - 1;
     const endNumber = parseEndNumber(attributes.endNumber);
     // clientOffset is passed in at the top level of mpd-parser and is an offset calculated
     // after retrieving UTC server time.
@@ -91,8 +115,8 @@ export const segmentRange = {
     const availableEnd = Math.floor((now - periodStartWC) * timescale / duration);
 
     return {
-      start: Math.max(0, availableStart),
-      end: typeof endNumber === 'number' ? endNumber : Math.min(segmentCount, availableEnd)
+      start: start + Math.max(0, availableStart),
+      end: typeof endNumber === 'number' ? endNumber : start + Math.min(segmentCount, availableEnd)
     };
   }
 };
