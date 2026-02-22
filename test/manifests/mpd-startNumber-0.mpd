@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" id="91bef76c-c5b1-4767-a594-166b0f45d822" profiles="urn:mpeg:dash:profile:isoff-live:2011,urn:com:dashif:dash264" type="static" mediaPresentationDuration="P0Y0M0DT0H13M59.080S" minBufferTime="P0Y0M0DT0H0M2.000S" xmlns:ns2="http://www.w3.org/1999/xlink">
+  <Period id="ac71d9a8-fa58-459f-a175-b704824bc6f2">
+    <AdaptationSet mimeType="video/mp4" segmentAlignment="true" par="16:9">
+      <Representation id="e6eb9039-764a-43df-b0cb-d2fbfdea7d9d" bandwidth="1500000" width="960" height="540" codecs="avc1.64001F" sar="1:1" frameRate="25">
+        <SegmentTemplate media="../../h264/1500000/seg_dash_$Number$.m4v" startNumber="0" timescale="25000" duration="48000" initialization="../../h264/1500000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="46bc4231-ad8f-4841-84f2-7dfc4a486f7c" bandwidth="3000000" width="1280" height="720" codecs="avc1.64001F" sar="1:1" frameRate="25">
+        <SegmentTemplate media="../../h264/3000000/seg_dash_$Number$.m4v" startNumber="0" timescale="25000" duration="48000" initialization="../../h264/3000000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="ce60eb31-351a-40ba-9f0d-49b4fd7ca2a3" bandwidth="6500000" width="1280" height="720" codecs="avc1.640020" sar="1:1" frameRate="50">
+        <SegmentTemplate media="../../h264/6500000/seg_dash_$Number$.m4v" startNumber="0" timescale="50000" duration="96000" initialization="../../h264/6500000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="e5c623d6-f6a5-4668-bc0d-9b805a0e4259" bandwidth="4400000" width="1280" height="720" codecs="avc1.640020" sar="1:1" frameRate="50">
+        <SegmentTemplate media="../../h264/4400000/seg_dash_$Number$.m4v" startNumber="0" timescale="50000" duration="96000" initialization="../../h264/4400000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="5e1d117a-b423-459d-9f5c-11c56dacae20" bandwidth="288000" width="480" height="270" codecs="avc1.64001F" sar="1:1" frameRate="25">
+        <SegmentTemplate media="../../h264/288000/seg_dash_$Number$.m4v" startNumber="0" timescale="25000" duration="48000" initialization="../../h264/288000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="e54336c4-41f3-4f19-8c9b-43d6ac7d9c13" bandwidth="8000000" width="1920" height="1080" codecs="avc1.64002A" sar="1:1" frameRate="50">
+        <SegmentTemplate media="../../h264/8000000/seg_dash_$Number$.m4v" startNumber="0" timescale="50000" duration="96000" initialization="../../h264/8000000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="29a36f0d-f84a-4d99-8724-fb6d6d35dff1" bandwidth="2300000" width="1280" height="720" codecs="avc1.64001F" sar="1:1" frameRate="25">
+        <SegmentTemplate media="../../h264/2300000/seg_dash_$Number$.m4v" startNumber="0" timescale="25000" duration="48000" initialization="../../h264/2300000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="c622040e-e13a-4a36-a33d-cce4afc7d981" bandwidth="480000" width="640" height="360" codecs="avc1.64001F" sar="1:1" frameRate="25">
+        <SegmentTemplate media="../../h264/480000/seg_dash_$Number$.m4v" startNumber="0" timescale="25000" duration="48000" initialization="../../h264/480000/init_dash.m4v"/>
+      </Representation>
+      <Representation id="1c7c1189-c582-429b-aa92-b3452f62784e" bandwidth="840000" width="960" height="540" codecs="avc1.64001F" sar="1:1" frameRate="25">
+        <SegmentTemplate media="../../h264/840000/seg_dash_$Number$.m4v" startNumber="0" timescale="25000" duration="48000" initialization="../../h264/840000/init_dash.m4v"/>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" segmentAlignment="true">
+      <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2"/>
+      <Representation id="b5850208-71fd-4b6b-911a-783ec01547ad" bandwidth="128000" codecs="mp4a.40.2" audioSamplingRate="48000">
+        <SegmentTemplate media="../../aac/128000/seg_dash_$Number$.m4a" startNumber="0" timescale="48000" duration="92160" initialization="../../aac/128000/init_dash.m4a"/>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

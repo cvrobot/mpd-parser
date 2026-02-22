@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MPD xmlns:dashif="https://dashif.org/"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:nvod="urn:naver:vod:2020"
+  xmlns:sea="urn:mpeg:dash:schema:sea:2012"
+  xmlns="urn:mpeg:dash:schema:mpd:2011" profiles="urn:mpeg:dash:profile:full:2011,urn:mpeg:dash:profile:mp2t-main:2011,urn:mpeg:dash:profile:mp2t-simple:2011" type="static" mediaPresentationDuration="P0Y0M0DT0H1M35.272S" minBufferTime="P0Y0M0DT0H0M3.000S" nvod:videoId="F780F4FB2A388C6D67EADA0B300A64198F86" nvod:serverTime="2024-09-07T13:27:24+0900" nvod:expireTime="2024-09-07T13:57:24+0900">
+  <Period id="F780F4FB2A388C6D67EADA0B300A64198F86" duration="P0Y0M0DT0H1M35.272S" bitstreamSwitching="true">
+    <AdaptationSet maxWidth="1920" maxHeight="1080" mimeType="video/mp2t" nvod:m3u="https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/607f08ce-9f72-11ee-8cbc-a0369ffac16c.m3u8?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440">
+      <Role schemeIdUri="urn:naver:vod:loudnessnormalize:2019-0">
+        <nvod:LoudnessNormalize enable="true" version="1.1.4" contentType="application/octet-stream" contentEncoding="BASE64_SAFE">
+          <nvod:Property name="targetLoudness">-16.0</nvod:Property>
+          <nvod:Property name="mode">youtube-like</nvod:Property>
+          <nvod:Source type="string">AQAAAAEAIT8BPQEAvwaFHwAgaSSFHwAAVlsQDQGzBALzFgPMGwX0FgazCQmjHRH8RBfMICO7yAFGlzGLAc4jlwLBB4EEmQEBAAAAAQAAAgFf_____w==</nvod:Source>
+        </nvod:LoudnessNormalize>
+      </Role>
+      <Representation id="5d294e18-9f72-11ee-9f1b-80615f0bce44" bandwidth="8105984" width="1920" height="1080" frameRate="30" codecs="avc1.640028,mp4a.40.2" nvod:m3u="https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/5d294e18-9f72-11ee-9f1b-80615f0bce44.m3u8?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440">
+        <nvod:Label kind="fps">30</nvod:Label>
+        <nvod:Label kind="resolution">1080</nvod:Label>
+        <BaseURL>https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$-$Number%06d$.ts?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440" startNumber="0" timescale="1000">
+          <SegmentTimeline>
+            <S t="0" d="4000" r="22"/>
+            <S t="92000" d="3233"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+      <Representation id="438e9634-9f72-11ee-8afe-80615f0c47f0" bandwidth="166912" width="256" height="144" frameRate="30" codecs="avc1.4dc00c,mp4a.40.2" nvod:m3u="https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/438e9634-9f72-11ee-8afe-80615f0c47f0.m3u8?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440">
+        <nvod:Label kind="fps">30</nvod:Label>
+        <nvod:Label kind="resolution">144</nvod:Label>
+        <BaseURL>https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$-$Number%06d$.ts?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440" startNumber="0" timescale="1000">
+          <SegmentTimeline>
+            <S t="0" d="4000" r="22"/>
+            <S t="92000" d="3233"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+      <Representation id="5780a1c8-9f72-11ee-a3c4-a0369ffd9b88" bandwidth="2189312" width="854" height="480" frameRate="30" codecs="avc1.4d401f,mp4a.40.2" nvod:m3u="https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/5780a1c8-9f72-11ee-a3c4-a0369ffd9b88.m3u8?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440">
+        <nvod:Label kind="fps">30</nvod:Label>
+        <nvod:Label kind="resolution">480</nvod:Label>
+        <BaseURL>https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$-$Number%06d$.ts?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440" startNumber="0" timescale="1000">
+          <SegmentTimeline>
+            <S t="0" d="4000" r="22"/>
+            <S t="92000" d="3233"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+      <Representation id="5b6afc3d-9f72-11ee-9f1b-80615f0bce44" bandwidth="4177920" width="1280" height="720" frameRate="30" codecs="avc1.4d401f,mp4a.40.2" nvod:m3u="https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/5b6afc3d-9f72-11ee-9f1b-80615f0bce44.m3u8?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440">
+        <nvod:Label kind="fps">30</nvod:Label>
+        <nvod:Label kind="resolution">720</nvod:Label>
+        <BaseURL>https://b01-kr-naver-vod.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_2/hls/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$-$Number%06d$.ts?_lsu_sa_=6c95c8f8614562e662d015aa6c05ebb6fece3af8870f7f163a87f3cd97ff3f952223cac16bc5a50890aa377242321bfc32901d3648d57ba4815366a3ac39b67d8295ce14b7297df98d164f948b103a0b4eee90a840fab1974ecefd07fa83de3ec6df5a4a220d5c18b10aa9628680dddd2286cecbac1159aa2ddbc6b35974e440" startNumber="0" timescale="1000">
+          <SegmentTimeline>
+            <S t="0" d="4000" r="22"/>
+            <S t="92000" d="3233"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+    </AdaptationSet>
+    <SupplementalProperty schemeIdUri="urn:naver:vod:information:2019">
+      <nvod:Summary lang="en-US">
+        <nvod:Title>※시청주의※한번보면 잊기 힘든 영상</nvod:Title>
+        <nvod:Cover type="url">https://video-phinf.pstatic.net/20231221_91/17031023528684eqbT_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_01.jpg</nvod:Cover>
+      </nvod:Summary>
+      <nvod:EndCredits>
+        <nvod:Provider name="NAVER"/>
+        <nvod:Creator id="68f8****************************" name="68f8****************************"/>
+      </nvod:EndCredits>
+      <nvod:Thumbnails>
+        <nvod:SeekingThumbnail type="m_10x10">
+          <nvod:Page total="1" row="10" column="10" totalPieceSize="97"/>
+          <nvod:Piece width="160" height="90" intervalType="millisecond" interval="1000"/>
+          <nvod:Source patternType="sequence_pattern">https://resources-rmcnmv.pstatic.net/glive/c/read/v2/VOD_ALPHA/glive_2023_12_21_4/578a17a9-9f72-11ee-a3c4-a0369ffd9b88/sprite_57b4aae1-9f72-11ee-8bce-48df37e31a92_#.jpg</nvod:Source>
+        </nvod:SeekingThumbnail>
+        <nvod:ThumbnailSet type="SCENE" size="10">
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M0.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_91/17031023528684eqbT_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_01.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M10.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_11/1703102352936sDHVL_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_02.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M19.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_251/1703102352954k1o1e_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_03.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M29.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_13/17031023530221tone_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_04.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M38.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_21/1703102353097ehwnl_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_05.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M48.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_230/1703102353163alLVN_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_06.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H0M57.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_172/1703102353215hWE9q_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_07.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H1M7.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_32/17031023532346IkUe_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_08.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H1M16.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_224/1703102353299gyjb5_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_09.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+          <nvod:Thumbnail targetTime="P0Y0M0DT0H1M26.000S">
+            <nvod:Source type="url">https://video-phinf.pstatic.net/20231221_296/1703102353315SCWQa_JPEG/3d24e4c6-9f72-11ee-b2ce-80615f0bcbfc_10.jpg?type=s80</nvod:Source>
+          </nvod:Thumbnail>
+        </nvod:ThumbnailSet>
+      </nvod:Thumbnails>
+      <nvod:Trackings tid="J0hW8AwykEv6_pMK5a-nLA">
+        <nvod:Tracking event="quality" type="qoe">
+          <nvod:TimeTable>[3, 5, 8, 13, 21, 34, 60]</nvod:TimeTable>
+          <nvod:Url>https://apis.naver.com/mcollector/mcollector/qoe</nvod:Url>
+        </nvod:Tracking>
+        <nvod:Tracking event="error" type="qoe">
+          <nvod:Url>https://apis.naver.com/mcollector/mcollector/qoeError</nvod:Url>
+        </nvod:Tracking>
+        <nvod:Tracking event="count" type="normal">
+          <nvod:TimeTable>[0]</nvod:TimeTable>
+          <nvod:Url>https://apis.naver.com/rmcnmv/rmcnmv/PlayCount.json?v=1&amp;refCode=https://chzzk.naver.com/video/1980&amp;key=V12994867c50425f7d8e44f3d181e67d1bf1ee1b849592044232a3c09684527606e904f3d181e67d1bf1e&amp;tid=J0hW8AwykEv6_pMK5a-nLA&amp;vid=F780F4FB2A388C6D67EADA0B300A64198F86&amp;cc=KR&amp;sid=2099&amp;inout=in</nvod:Url>
+          <nvod:Param>
+            <nvod:ContentProvider>NAVER</nvod:ContentProvider>
+          </nvod:Param>
+          <nvod:CallbackData><![CDATA[{"cpn":"NAVER","cpid":"NAVER","tid":"J0hW8AwykEv6_pMK5a-nLA"}]]></nvod:CallbackData>
+        </nvod:Tracking>
+        <nvod:Tracking event="time" type="normal">
+          <nvod:TimeTable>[0]</nvod:TimeTable>
+          <nvod:Url>https://apis.naver.com/videostat/videostat/PlayTime.json?v=1&amp;tid=J0hW8AwykEv6_pMK5a-nLA</nvod:Url>
+          <nvod:Param>
+            <nvod:ContentProvider>NAVER</nvod:ContentProvider>
+          </nvod:Param>
+          <nvod:CallbackData><![CDATA[{"cpn":"NAVER","cpid":"NAVER","tid":"J0hW8AwykEv6_pMK5a-nLA"}]]></nvod:CallbackData>
+        </nvod:Tracking>
+      </nvod:Trackings>
+      <nvod:Advertise/>
+    </SupplementalProperty>
+  </Period>
+</MPD>
