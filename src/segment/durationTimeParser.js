@@ -149,14 +149,26 @@ export const toSegments = (attributes) => (number) => {
     duration,
     timescale = 1,
     periodStart,
-    startNumber = 1
+    startNumber
   } = attributes;
 
+  // segmentRange calculates 'number' as an offset from (startNumber - 1).
+  // The actual segment number should be: (number from range) + 1
+  const segmentNumber = number + 1;
+
+  // For time calculation:
+  // - 'number' from range represents the segment index offset from (startNumber - 1)
+  // - The time offset should be relative to the start of the period, not the start of the range
+  // - So we use 'number' (which is segment index from startNumber-1) + 1 - startNumber to get the offset
+  //   or simply: segmentNumber - startNumber
+  const parsedStartNumber = parseStartNumber(startNumber);
+  const segmentIndex = segmentNumber - parsedStartNumber;
+
   return {
-    number: startNumber + number,
+    number: segmentNumber,
     duration: duration / timescale,
     timeline: periodStart,
-    time: number * duration
+    time: segmentIndex * duration
   };
 };
 
