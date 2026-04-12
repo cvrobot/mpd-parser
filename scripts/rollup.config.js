@@ -33,9 +33,7 @@ const options = {
     return defaults;
   },
   globals(defaults) {
-    // '@xmldom/xmldom' default set to 'xmldom' from 'window', we will build '@xmldom/xmldom' to library xmldom;
-    // background service will use library xmldom, not 'window' as xmldom
-    defaults.browser['@xmldom/xmldom'] = 'xmldom';
+    defaults.browser['@xmldom/xmldom'] = 'window';
     defaults.browser.atob = 'window.atob';
     defaults.test['@xmldom/xmldom'] = 'window';
     defaults.test.atob = 'window.atob';
